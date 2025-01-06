@@ -116,8 +116,6 @@ const cardSlice = createSlice({
   },
 });
 
-// PayloadAction<Array<TCardsState>>
-
 export const cardsReducer = cardSlice.reducer;
 export const { addVisiblePopup, deleteVisiblePopup, saveDataToPopup } =
   cardSlice.actions;
