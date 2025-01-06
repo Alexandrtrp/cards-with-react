@@ -17,8 +17,10 @@
 Этого к сожалению с моим API сделать было нельзя, так как все данные уже были внутри одного объекта карточки(условного поста)
 
 Верстка проекта и файл с стилями был взят из моего готового проекта.
+
 Ссылка на репозиторий https://github.com/Alexandrtrp/mesto-project-ff
-Ссылка для открытия сайта в интернет https://alexandrtrp.github.io/mesto-project-ff/
+
+Ссылка для открытия исходного сайта в интернет https://alexandrtrp.github.io/mesto-project-ff/
 
 ## Available Scripts
 
