@@ -1,10 +1,6 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const config = {
+export const config = {
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-magistr-2",
   headers: {
     authorization: "bc87767e-4fd6-4faf-bbe1-2b50fbc9866d",
@@ -12,12 +8,14 @@ const config = {
   },
 };
 
-const checkResponse = (res: Response) => {
+// b0ff82b903f1b1bd17ff6a6c
+
+export const checkResponse = (res: Response) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 };
 
 export const getInitialCards = createAsyncThunk(
-  "posts/getPostsApi",
+  "cards/getInitialCards",
   async function fetchData() {
     try {
       const res = await fetch(`${config.baseUrl}/cards`, {
@@ -58,14 +56,14 @@ export type TCardsState = {
   popupData: {
     link: string;
     text: string;
-    likes: Array<TPersonInfo>
+    likes: Array<TPersonInfo>;
   };
 };
 
 type TSaveData = {
   link: string;
   text: string;
-  likes: Array<TPersonInfo>
+  likes: Array<TPersonInfo>;
 };
 
 // Надо выделить действия с попапом в отдельный слайс
@@ -78,7 +76,7 @@ const initialState: TCardsState = {
   popupData: {
     link: "",
     text: "",
-    likes: []
+    likes: [],
   },
 };
 
@@ -95,7 +93,7 @@ const cardSlice = createSlice({
     saveDataToPopup: (state, action: PayloadAction<TSaveData>) => {
       state.popupData.link = action.payload.link;
       state.popupData.text = action.payload.text;
-      state.popupData.likes = action.payload.likes
+      state.popupData.likes = action.payload.likes;
     },
   },
 
@@ -119,5 +117,3 @@ const cardSlice = createSlice({
 export const cardsReducer = cardSlice.reducer;
 export const { addVisiblePopup, deleteVisiblePopup, saveDataToPopup } =
   cardSlice.actions;
-
-
